@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Mother’s Day | Yasmine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+
+    :root{
+      --bg1:#2a0f18;
+      --bg2:#4a1526;
+      --bg3:#6d1d34;
+      --wine:#7f1d35;
+      --wine-dark:#5b1226;
+      --rose:#a63b5b;
+      --rose-soft:#f6d7de;
+      --cream:#fff7f8;
+      --text:#fff4f6;
+      --muted:#f1c7d2;
+      --line:rgba(255,255,255,.14);
+      --card:rgba(84,18,39,.72);
+      --card-solid:#66192f;
+      --shadow:0 20px 50px rgba(0,0,0,.26);
+      --choco:#7a4a3a;
+      --choco-dark:#5f352a;
+      --leaf:#80b37a;
+      --pot:#b96f58;
+      --pot-dark:#915440;
+    }
+
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Poppins',sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,.06), transparent 22%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,.04), transparent 18%),
+        linear-gradient(180deg,var(--bg1),var(--bg2) 45%,var(--bg3));
+      overflow-x:hidden;
+    }
+
+    .floating-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+    .floating-bg span{position:absolute;bottom:-60px;opacity:.24;animation:rise linear infinite;font-size:22px}
+    .floating-bg span:nth-child(1){left:4%;animation-duration:15s}
+    .floating-bg span:nth-child(2){left:12%;animation-duration:19s;animation-delay:2s}
+    .floating-bg span:nth-child(3){left:22%;animation-duration:13s;animation-delay:1s}
+    .floating-bg span:nth-child(4){left:33%;animation-duration:17s;animation-delay:4s}
+    .floating-bg span:nth-child(5){left:45%;animation-duration:14s;animation-delay:2s}
+    .floating-bg span:nth-child(6){left:56%;animation-duration:20s;animation-delay:5s}
+    .floating-bg span:nth-child(7){left:68%;animation-duration:16s;animation-delay:1s}
+    .floating-bg span:nth-child(8){left:79%;animation-duration:18s;animation-delay:3s}
+    .floating-bg span:nth-child(9){left:90%;animation-duration:14s;animation-delay:2s}
+
+    .flower-corners{position:fixed;inset:0;pointer-events:none;z-index:0}
+    .corner{position:absolute;font-size:30px;opacity:.42;filter:drop-shadow(0 4px 8px rgba(0,0,0,.18))}
+    .corner.tl{top:16px;left:16px}.corner.tr{top:16px;right:16px}.corner.bl{bottom:16px;left:16px}.corner.br{bottom:16px;right:16px}
+
+    .wrap{width:min(100%,1080px);margin:auto;padding:14px;position:relative;z-index:1}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);backdrop-filter:blur(10px)}
+
+    .hero{min-height:100vh;display:grid;place-items:center;padding:20px 0}
+    .hero-box{text-align:center;padding:36px 24px;position:relative;overflow:hidden}
+    .hero-box::before,.hero-box::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.05);z-index:0}
+    .hero-box::before{top:-90px;left:-80px}.hero-box::after{bottom:-90px;right:-80px}
+    .hero-box>*{position:relative;z-index:1}
+
+    .tag{text-transform:uppercase;letter-spacing:.2em;font-size:.74rem;color:var(--rose-soft);margin-bottom:12px}
+    h1,h2,h3{font-family:'Playfair Display',serif}
+    h1{font-size:clamp(2.7rem,8vw,5.4rem);line-height:.95;margin-bottom:16px}
+    .subtitle{max-width:720px;margin:0 auto;color:var(--muted);line-height:2;font-size:1rem}
+
+    .romantic-row{display:grid;grid-template-columns:120px 1fr 120px;gap:16px;align-items:end;margin-top:24px}
+    .hero-mini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .mini-box{background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:22px;padding:16px}
+    .mini-box strong{display:block;color:var(--rose-soft);margin-bottom:6px;font-size:1rem}
+    .mini-box p{color:var(--muted);line-height:1.75;font-size:.92rem}
+
+    .flower-pot{width:110px;position:relative;justify-self:center;animation:sway 4s ease-in-out infinite}
+    .pot-flowers{position:relative;height:110px;display:flex;justify-content:center;align-items:flex-end;gap:6px;margin-bottom:-8px}
+    .stem{width:4px;height:50px;background:var(--leaf);border-radius:999px;position:relative;display:flex;justify-content:center;align-items:flex-start}
+    .stem::before,.stem::after{content:"";position:absolute;width:14px;height:8px;background:var(--leaf);border-radius:14px 14px 0 14px;top:18px}
+    .stem::before{left:-10px;transform:rotate(-25deg)}
+    .stem::after{right:-10px;transform:scaleX(-1) rotate(-25deg)}
+    .bloom{position:absolute;top:-6px;font-size:22px;filter:drop-shadow(0 3px 5px rgba(0,0,0,.18))}
+    .pot{width:100px;height:62px;margin:0 auto;background:linear-gradient(180deg,var(--pot),var(--pot-dark));clip-path:polygon(15% 0,85% 0,100% 100%,0 100%);border-radius:0 0 18px 18px;box-shadow:0 10px 18px rgba(0,0,0,.18)}
+    .pot-rim{width:110px;height:14px;background:#cf8b74;border-radius:999px;margin:0 auto -6px}
+
+    .choco-box{width:110px;justify-self:center;animation:sway 4.8s ease-in-out infinite}
+    .choco-lid{width:102px;height:16px;margin:0 auto;background:linear-gradient(180deg,#b9816e,#996455);border-radius:12px 12px 6px 6px}
+    .choco-body{width:110px;padding:12px 8px 10px;background:linear-gradient(180deg,#bd6986,#93415f);border-radius:18px;box-shadow:0 10px 22px rgba(0,0,0,.16)}
+    .chocos{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.choco{height:18px;background:linear-gradient(180deg,var(--choco),var(--choco-dark));border-radius:8px;box-shadow:inset 0 2px 2px rgba(255,255,255,.12)}
+
+    .section{margin-top:16px;padding:24px}
+    h2{text-align:center;font-size:2rem;margin-bottom:14px}
+    .message,.final-text,.section-text{max-width:760px;margin:0 auto;text-align:center;color:var(--muted);line-height:2;font-size:.98rem}
+
+    .gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:16px}
+    .photo{aspect-ratio:1/1.08;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:rgba(255,255,255,.08);position:relative;cursor:pointer;transition:transform .25s ease, box-shadow .25s ease}
+    .photo:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(0,0,0,.18)}
+    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .placeholder{height:100%;display:grid;place-items:center;text-align:center;padding:18px;color:var(--muted);line-height:1.8;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04))}
+    .photo-label{position:absolute;left:10px;right:10px;bottom:10px;background:rgba(64,16,32,.75);border:1px solid var(--line);border-radius:999px;padding:8px 10px;font-size:.82rem;color:var(--rose-soft);text-align:center;backdrop-filter:blur(6px)}
+
+    .reasons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:16px}
+    .reason{background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:24px;padding:20px;text-align:center;transition:transform .25s ease;position:relative;overflow:hidden}
+    .reason::after{content:"🌸";position:absolute;top:10px;right:10px;opacity:.16;font-size:18px}
+    .reason:hover{transform:translateY(-4px)}
+    .reason .icon{font-size:1.6rem;margin-bottom:8px}.reason strong{display:block;color:var(--rose-soft);margin-bottom:8px;font-size:1.05rem}.reason p{color:var(--muted);line-height:1.8;font-size:.94rem}
+
+    .timeline{max-width:860px;margin:18px auto 0;display:grid;gap:12px}
+    .timeline-item{display:grid;grid-template-columns:150px 1fr;gap:12px;background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:22px;padding:16px;align-items:start;position:relative}
+    .timeline-item::before{content:"🌷";position:absolute;left:14px;bottom:10px;opacity:.14}
+    .timeline-year{color:var(--rose-soft);font-weight:700;font-size:1rem}.timeline-content h3{font-size:1.1rem;margin-bottom:6px;color:var(--text)}.timeline-content p{color:var(--muted);line-height:1.85;font-size:.95rem}
+
+    .interactive-row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:16px;margin-top:16px;align-items:start}
+    .letter-box,.quote-box{padding:24px;background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:24px;position:relative;overflow:hidden;min-width:0}
+    .letter-box::before,.quote-box::before{content:"🌸 🌷 🌸";position:absolute;top:10px;left:14px;opacity:.14;font-size:18px}
+    .letter-box h3,.quote-box h3{text-align:center;margin-bottom:12px;color:var(--rose-soft);font-size:1.5rem}
+    .typed-text{min-height:168px;color:var(--muted);line-height:2;font-size:.97rem;white-space:pre-wrap;overflow-wrap:anywhere}
+    .controls{display:flex;justify-content:center;gap:10px;margin-top:14px;flex-wrap:wrap}
+    .control-btn{border:none;background:linear-gradient(135deg,var(--rose),var(--wine));color:#fff;border-radius:999px;padding:12px 18px;font-weight:600;cursor:pointer;transition:.25s ease;box-shadow:0 10px 20px rgba(0,0,0,.16)}
+    .control-btn:hover{transform:translateY(-2px)}
+    .quote-card{background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:20px;padding:18px;text-align:center;min-height:150px;display:grid;place-items:center}.quote-card p{color:var(--muted);line-height:1.9;font-size:1rem;overflow-wrap:anywhere}
+
+    .surprise-box{text-align:center;margin-top:16px}.surprise-message{margin-top:14px;background:rgba(255,255,255,.08);border:1px dashed var(--rose);border-radius:22px;padding:18px;color:var(--rose-soft);line-height:1.9;display:none;position:relative}.surprise-message::before{content:"💐 🍫 💐";display:block;margin-bottom:8px;opacity:.8}
+
+    .final{text-align:center;padding:34px 26px 42px;margin-top:16px;position:relative;overflow:hidden}.final::before{content:"🌸🌷🌸🌷🌸";position:absolute;top:12px;left:50%;transform:translateX(-50%);opacity:.18;letter-spacing:8px}.signature{margin-top:18px;font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--rose-soft)}
+
+    .lightbox{position:fixed;inset:0;background:rgba(26,7,14,.82);display:none;align-items:center;justify-content:center;z-index:99;padding:16px}.lightbox-content{width:min(100%,680px);background:var(--card-solid);border-radius:24px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 60px rgba(0,0,0,.3)}.lightbox-image{width:100%;aspect-ratio:1/0.8;background:rgba(255,255,255,.06)}.lightbox-image img{width:100%;height:100%;object-fit:cover;display:block}.lightbox-caption{padding:16px;text-align:center;color:var(--muted);line-height:1.8}.close-btn{position:absolute;top:16px;right:16px;width:42px;height:42px;border:none;border-radius:50%;background:#fff;color:var(--wine);font-size:1.2rem;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.14)}
+
+    @keyframes rise{from{transform:translateY(0);opacity:.14}to{transform:translateY(-110vh);opacity:.4}}
+    @keyframes sway{0%,100%{transform:rotate(0deg) translateY(0)}50%{transform:rotate(2deg) translateY(-4px)}}
+
+    @media (max-width:920px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.reasons{grid-template-columns:repeat(2,minmax(0,1fr))}.interactive-row{grid-template-columns:1fr 1fr}.hero-mini{grid-template-columns:repeat(3,minmax(0,1fr))}.romantic-row{grid-template-columns:100px 1fr 100px;align-items:end}}
+    @media (max-width:760px){.interactive-row{grid-template-columns:1fr}.romantic-row{grid-template-columns:90px 1fr 90px;gap:10px}.hero-mini{grid-template-columns:1fr}.timeline-item{grid-template-columns:1fr}}
+    @media (max-width:560px){.wrap{padding:10px}.hero-box,.section,.final{padding:18px}h2{font-size:1.7rem}.subtitle,.message,.final-text,.section-text,.typed-text,.quote-card p{font-size:.94rem}.corner{font-size:24px}.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.reasons{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.romantic-row{grid-template-columns:72px 1fr 72px;gap:8px}.flower-pot,.choco-box{width:72px}.pot{width:62px;height:42px}.pot-rim{width:70px;height:10px}.pot-flowers{height:72px}.stem{height:34px}.bloom{font-size:16px}.choco-lid{width:64px;height:10px}.choco-body{width:72px;padding:8px 6px}.choco{height:10px;border-radius:4px}}
+  </style>
+</head>
+<body>
+  <div class="flower-corners">
+    <span class="corner tl">🌸🌷</span>
+    <span class="corner tr">🌷🌸</span>
+    <span class="corner bl">🌸🌷</span>
+    <span class="corner br">🌷🌸</span>
+  </div>
+  <div class="floating-bg">
+    <span>🌸</span>
+    <span>❤</span>
+    <span>🌷</span>
+    <span>🌸</span>
+    <span>❤</span>
+    <span>🌷</span>
+    <span>🌸</span>
+    <span>❤</span>
+  </div>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-box card">
+        <p class="tag">Made by Habiba for Yasmine</p>
+        <h1>Happy <br>Mother’s Day</h1>
+        <p class="subtitle">
+          To my beautiful mom, Yasmine — this website is a small gift made with love to celebrate your kindness, your strength, your heart, and every little thing that makes you the most special mother in the world.
+        </p>
+
+        <div class="romantic-row">
+          <div class="flower-pot" aria-hidden="true">
+            <div class="pot-flowers">
+              <div class="stem"><span class="bloom">🌷</span></div>
+              <div class="stem"><span class="bloom">🌸</span></div>
+              <div class="stem"><span class="bloom">🌷</span></div>
+            </div>
+            <div class="pot-rim"></div>
+            <div class="pot"></div>
+          </div>
+
+          <div class="hero-mini">
+          <div class="mini-box">
+            <strong>Your Love</strong>
+            <p>The safest place, the warmest hug, and the sweetest comfort in every moment.</p>
+          </div>
+          <div class="mini-box">
+            <strong>Your Strength</strong>
+            <p>The quiet power that makes hard days easier and every challenge feel lighter.</p>
+          </div>
+          <div class="mini-box">
+            <strong>Your Heart</strong>
+            <p>The reason our home feels full of peace, kindness, and beautiful memories.</p>
+          </div>
+        </div>
+
+          <div class="choco-box" aria-hidden="true">
+            <div class="choco-lid"></div>
+            <div class="choco-body">
+              <div class="chocos">
+                <span class="choco"></span>
+                <span class="choco"></span>
+                <span class="choco"></span>
+                <span class="choco"></span>
+                <span class="choco"></span>
+                <span class="choco"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section card">
+      <h2>A Message from Habiba</h2>
+      <p class="message">
+        Mom, no matter how much I say it, I will never be able to fully explain how much you mean to me. Thank you for every prayer, every sacrifice, every moment of patience, and every time you chose love even when life was hard. You are my comfort, my support, my safe place, and one of the greatest blessings in my life. I made this for you because you deserve to feel celebrated, appreciated, and deeply loved today and every day.
+      </p>
+    </section>
+
+    <section class="section card">
+      <h2>Beautiful Memories With You</h2>
+      <p class="section-text">Tap any photo to open it bigger.</p>
+      <div class="gallery">
+        <div class="photo" data-caption="A beautiful memory with Mom.">
+          <div class="placeholder">Add photo here<br>image1.jpg</div>
+          <div class="photo-label">Memory One</div>
+        </div>
+        <div class="photo" data-caption="A special day with Yasmine.">
+          <div class="placeholder">Add photo here<br>image2.jpg</div>
+          <div class="photo-label">Memory Two</div>
+        </div>
+        <div class="photo" data-caption="A lovely moment full of smiles.">
+          <div class="placeholder">Add photo here<br>image3.jpg</div>
+          <div class="photo-label">Memory Three</div>
+        </div>
+        <div class="photo" data-caption="A memory Habiba will always treasure.">
+          <div class="placeholder">Add photo here<br>image4.jpg</div>
+          <div class="photo-label">Memory Four</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section card">
+      <h2>Why You Are So Special</h2>
+      <div class="reasons">
+        <div class="reason">
+          <div class="icon">🌷</div>
+          <strong>Your Tenderness</strong>
+          <p>You make everything feel softer, calmer, and more beautiful.</p>
+        </div>
+        <div class="reason">
+          <div class="icon">❤</div>
+          <strong>Your Endless Love</strong>
+          <p>You love in ways that heal, protect, and stay forever in the heart.</p>
+        </div>
+        <div class="reason">
+          <div class="icon">✨</div>
+          <strong>Your Wisdom</strong>
+          <p>Your advice, your patience, and your strength guide every step.</p>
+        </div>
+        <div class="reason">
+          <div class="icon">🌸</div>
+          <strong>Your Presence</strong>
+          <p>Just having you near makes life feel safer and more complete.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section card">
+      <h2>Our Story in Moments</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">Every Childhood Day</div>
+          <div class="timeline-content">
+            <h3>The First Safe Place</h3>
+            <p>You were the first person who made the world feel gentle, loving, and full of care.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Every Hard Time</div>
+          <div class="timeline-content">
+            <h3>The Strongest Support</h3>
+            <p>When life became heavy, your words, hugs, and patience made everything easier to carry.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Every Happy Memory</div>
+          <div class="timeline-content">
+            <h3>The Heart of the Home</h3>
+            <p>You turned ordinary moments into memories full of warmth, laughter, and love.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section card">
+      <h2>Interactive Love Notes</h2>
+      <div class="interactive-row">
+        <div class="letter-box">
+          <h3>Letter for Mom</h3>
+          <div class="typed-text" id="typedText"></div>
+          <div class="controls">
+            <button class="control-btn" id="playLetter">Play Letter</button>
+            <button class="control-btn" id="showAllLetter">Show Full Letter</button>
+          </div>
+        </div>
+
+        <div class="quote-box">
+          <h3>Tap for a Sweet Quote</h3>
+          <div class="quote-card">
+            <p id="quoteText">Press the button to see a new loving message for Yasmine.</p>
+          </div>
+          <div class="controls">
+            <button class="control-btn" id="newQuote">New Quote</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="surprise-box">
+        <button class="control-btn" id="surpriseBtn">Open a Surprise Message</button>
+        <div class="surprise-message" id="surpriseMessage">
+          Dear Mom Yasmine, you are loved more than words, more than time, and more than any small gift could ever show. Happy Mother’s Day from your daughter Habiba. ❤
+        </div>
+      </div>
+    </section>
+
+    <section class="final card">
+      <div style="display:flex; justify-content:center; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:14px;">
+        <div class="flower-pot" aria-hidden="true" style="transform:scale(.72);">
+          <div class="pot-flowers">
+            <div class="stem"><span class="bloom">🌸</span></div>
+            <div class="stem"><span class="bloom">🌷</span></div>
+            <div class="stem"><span class="bloom">🌸</span></div>
+          </div>
+          <div class="pot-rim"></div>
+          <div class="pot"></div>
+        </div>
+        <div class="choco-box" aria-hidden="true" style="transform:scale(.72);">
+          <div class="choco-lid"></div>
+          <div class="choco-body">
+            <div class="chocos">
+              <span class="choco"></span><span class="choco"></span><span class="choco"></span>
+              <span class="choco"></span><span class="choco"></span><span class="choco"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <h2>Thank You, Mom</h2>
+      <p class="final-text">
+        Thank you for your love, your sacrifices, your patience, your prayers, and your beautiful heart. Thank you for every lesson, every smile, every comforting word, and every time you gave more than anyone could see. You are deeply cherished, endlessly appreciated, and forever loved.
+      </p>
+      <div class="signature">With all my love, Habiba ❤</div>
+    </section>
+  </main>
+  <div class="lightbox" id="lightbox">
+    <button class="close-btn" id="closeLightbox">✕</button>
+    <div class="lightbox-content">
+      <div class="lightbox-image" id="lightboxImage">
+        <div class="placeholder">Add your real photo here</div>
+      </div>
+      <div class="lightbox-caption" id="lightboxCaption">Memory preview</div>
+    </div>
+  </div>
+
+  <script>
+    const fullLetter = `Dear Mom Yasmine,
+
+You are one of the greatest blessings in my life. Thank you for being my comfort when I am tired, my strength when I feel weak, and my happiness in the smallest moments. Thank you for the endless love you give without asking for anything back, and for the way you make everything feel safe and full of warmth.
+
+Happy Mother’s Day.
+Love always,
+Habiba ❤`;
+
+    const typedText = document.getElementById('typedText');
+    const playLetter = document.getElementById('playLetter');
+    const showAllLetter = document.getElementById('showAllLetter');
+    const newQuote = document.getElementById('newQuote');
+    const quoteText = document.getElementById('quoteText');
+    const surpriseBtn = document.getElementById('surpriseBtn');
+    const surpriseMessage = document.getElementById('surpriseMessage');
+    const photos = document.querySelectorAll('.photo');
+    const lightbox = document.getElementById('lightbox');
+    const closeLightbox = document.getElementById('closeLightbox');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxImage = document.getElementById('lightboxImage');
+
+    const quotes = [
+      'A mother’s love is the first home the heart ever knows.',
+      'Mom Yasmine, your kindness makes every memory softer and brighter.',
+      'Your love stays in every little detail of life and makes everything beautiful.',
+      'A mother like you is a blessing that deserves to be celebrated every day.',
+      'Habiba is lucky to have a mother whose heart is this full of love.'
+    ];
+
+    let typingInterval;
+
+    function typeLetter(text) {
+      clearInterval(typingInterval);
+      typedText.textContent = '';
+      let i = 0;
+      typingInterval = setInterval(() => {
+        typedText.textContent += text.charAt(i);
+        i++;
+        if (i >= text.length) clearInterval(typingInterval);
+      }, 22);
+    }
+
+    playLetter.addEventListener('click', () => typeLetter(fullLetter));
+    showAllLetter.addEventListener('click', () => {
+      clearInterval(typingInterval);
+      typedText.textContent = fullLetter;
+    });
+
+    newQuote.addEventListener('click', () => {
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      quoteText.textContent = randomQuote;
+    });
+
+    surpriseBtn.addEventListener('click', () => {
+      surpriseMessage.style.display = surpriseMessage.style.display === 'block' ? 'none' : 'block';
+    });
+
+    photos.forEach((photo) => {
+      photo.addEventListener('click', () => {
+        const img = photo.querySelector('img');
+        const caption = photo.getAttribute('data-caption') || 'Beautiful memory';
+        lightbox.style.display = 'flex';
+        lightboxCaption.textContent = caption;
+
+        if (img) {
+          lightboxImage.innerHTML = `<img src="${img.getAttribute('src')}" alt="Memory preview">`;
+        } else {
+          lightboxImage.innerHTML = '<div class="placeholder">Add your real photo here</div>';
+        }
+      });
+    });
+
+    closeLightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.style.display = 'none';
+    });
+
+    typeLetter(fullLetter);
+  </script>
+</body>
+</html>
